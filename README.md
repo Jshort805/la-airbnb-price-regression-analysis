@@ -295,8 +295,6 @@ In VS Code you can also open a script and run it in an R terminal (select all, t
 
 ## Credits
 
-- **Contributors:** Jeremy Short, _[teammate 2]_, _[teammate 3]_
 - **Data:** [Inside Airbnb](https://insideairbnb.com/), Los Angeles, scraped 2026-09-14. See their data policy for
   license and attribution terms.
 - **AI assistance:** parts of the code and documentation were developed with Claude (Anthropic).
-- _Add a license for the code here if desired (for example MIT)._
