@@ -1,0 +1,14 @@
+"variable","vif","in_final_model"
+"accommodates",4.86,TRUE
+"bedrooms",4,TRUE
+"beds",3.32,TRUE
+"bathrooms",2.08,TRUE
+"n_amenities",1.26,TRUE
+"host_is_superhost",1.16,FALSE
+"shared_bath",1.15,TRUE
+"minimum_nights",1.14,TRUE
+"has_license",1.11,TRUE
+"dist_lax_mi",1.11,TRUE
+"hosts_time_as_host_years",1.07,TRUE
+"calculated_host_listings_count",1.06,TRUE
+"host_identity_verified",1,FALSE

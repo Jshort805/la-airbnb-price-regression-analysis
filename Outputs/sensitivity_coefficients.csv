@@ -1,0 +1,38 @@
+"term","pct_effect_all","pct_effect_short"
+"room_typeHotel room",-24.6,-29.1
+"room_typePrivate room",-34,-35.7
+"room_typeShared room",-61.8,-51.1
+"property_type_grpEntire condo",2.9,12.5
+"property_type_grpEntire guest suite",-19.3,-21.9
+"property_type_grpEntire guesthouse",-15,-13.1
+"property_type_grpEntire rental unit",-8.2,-4.7
+"property_type_grpOther",-3.1,-2.5
+"property_type_grpPrivate room in home",-14.5,-12
+"property_type_grpPrivate room in rental unit",-13.2,-1.3
+"property_type_grpRoom in hotel",58.8,51.9
+"neighborhood_grpAlhambra",-3.9,-14
+"neighborhood_grpBeverly Hills",48,25.1
+"neighborhood_grpBurbank",18.2,6.9
+"neighborhood_grpCulver City",19.3,2
+"neighborhood_grpDowntown",1.8,-8.9
+"neighborhood_grpExposition Park",-43,-12.6
+"neighborhood_grpGlendale",18.4,8.3
+"neighborhood_grpHollywood",-6.3,-1.7
+"neighborhood_grpHollywood Hills",20,33.6
+"neighborhood_grpLong Beach",-5.5,-8.4
+"neighborhood_grpMid-City",-19.4,-13
+"neighborhood_grpPasadena",9.9,1.5
+"neighborhood_grpSanta Monica",30.4,19.2
+"neighborhood_grpVenice",24.2,23.7
+"neighborhood_grpWest Hollywood",17.4,2.2
+"accommodates",6.4,4.1
+"bedrooms",15.7,15.8
+"beds",-2.3,-0.9
+"bathrooms",4.6,1.4
+"shared_bathTRUE",-24.4,-26.6
+"n_amenities",0.3,0.4
+"minimum_nights",-0.8,-2
+"has_licenseTRUE",18.9,13.7
+"dist_lax_mi",-0.7,-0.9
+"hosts_time_as_host_years",-0.2,0.4
+"calculated_host_listings_count",-0.1,0.1
