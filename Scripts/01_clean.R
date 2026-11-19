@@ -1,5 +1,5 @@
-# 01_clean.R -- Clean the Inside Airbnb Los Angeles listings (scrape 2026-09-14)
-# Input : Data/raw/los_angeles_airbnb_listings.csv.gz  (never edit this file)
+# 01_clean.R - Clean the Inside Airbnb Los Angeles listings (scraped 2026-09-14)
+# Input : Data/raw/los_angeles_airbnb_listings.csv.gz  
 # Output: Data/clean/airbnb_analytic.csv  (final analytic file)
 #         Data/clean/data_dictionary_draft.csv  (variable names and types)
 # Run from the project root:  Rscript Scripts/01_clean.R
@@ -7,19 +7,23 @@
 
 set.seed(2026)
 
-## Part 1: Settings (change here and re-run)
-PRICE_MIN <- 20
-PRICE_MAX <- 1000
-TOP_NEIGHBORHOODS <- 15
-TOP_PROPERTY_TYPES <- 8
-lax_lat <- 33.9416
-lax_lon <- -118.4085
+## Part 1: Settings (change here and re-run to test other choices)
+PRICE_MIN <- 20            # drop listings priced below $20/night
+PRICE_MAX <- 1000          # drop listings priced above $1,000/night (extreme outliers)
+TOP_NEIGHBORHOODS <- 15    # keep the 15 biggest neighborhoods; the rest become "Other"
+TOP_PROPERTY_TYPES <- 8    # keep the 8 most common property types; the rest become "Other"
+lax_lat <- 33.9416         # LAX latitude, used to compute dist_lax_mi
+lax_lon <- -118.4085       # LAX longitude
 
+
+#############################################################################################################
 ## Part 2: Read the raw file
 raw <- read.csv("Data/raw/los_angeles_airbnb_listings.csv.gz", na.strings = c("", "NA"))
 cat("Raw file:", nrow(raw), "rows x", ncol(raw), "columns\n")
 if (nrow(raw) != 43781 || ncol(raw) != 90) stop("Use the committed 2026-09-14 snapshot")
 
+
+#############################################################################################################
 ## Part 3: Clean
 # Step 1: keep only the columns we need
 keep <- c("id", "price", "room_type", "property_type", "accommodates", "bedrooms",
@@ -51,6 +55,7 @@ cat("Step 4: removed", n - nrow(df), "rows outside $", PRICE_MIN, "-", PRICE_MAX
 cat("Step 5: percent missing by column (only columns with missing values):\n")
 pct_missing <- round(colMeans(is.na(df)) * 100, 1)
 print(pct_missing[pct_missing > 0])
+print(head(df[, names(df) != "amenities"]))
 
 # Step 6: yes/no columns are "t"/"f" text; bathrooms is text like "1.5 baths"
 df$host_is_superhost <- df$host_is_superhost == "t"
@@ -87,7 +92,10 @@ top_groups <- function(x, n) {
 df$neighborhood_grp <- top_groups(df$neighbourhood_cleansed, TOP_NEIGHBORHOODS)
 df$property_type_grp <- top_groups(df$property_type, TOP_PROPERTY_TYPES)
 df <- df[, !(names(df) %in% c("neighbourhood_cleansed", "property_type"))]
+print(head(df[, names(df) != "amenities"]))
 
+
+#############################################################################################################
 ## Part 4: Save and check
 dir.create("Data/clean", recursive = TRUE, showWarnings = FALSE)
 write.csv(df, "Data/clean/airbnb_analytic.csv", row.names = FALSE)
