@@ -232,8 +232,7 @@ The unzipped raw `.csv` (about 125 MB) is git-ignored because it exceeds GitHub'
 
 ## How to run
 
-**Requirements:** R 4.2 or newer. The cleaning, exploration and modeling scripts use base R only. `00_setup.R`
-installs optional packages (such as regclass and caret, which the current scripts do not use; VIF is computed by hand in 04_diagnostics.R) and the project tooling.
+**Requirements:** R 4.2 or newer. The cleaning, exploration and modeling scripts use base R only. 00_setup.R installs languageserver for VS Code R support.
 The repository includes a dev container, so it opens ready to use in GitHub Codespaces.
 
 **Run every script from the project root** (the folder that contains `Data/` and `Scripts/`), because all paths
