@@ -220,7 +220,7 @@ Decisions behind the cleaning:
 │   ├── 01_clean.R                    Raw data → analytic file (prints the cleaning log)
 │   ├── 02_explore.R                  Summary tables and charts
 │   ├── 03_model.R                    Train/test split, model comparison, final model
-│   ├── 04_diagnostics.R              Residual checks, VIF, sensitivity check 
+│   ├── 04_diagnostics.R              Residual checks, VIF, sensitivity check
 │   └── 05_export_model_variables.R   Export of final cleaned model variables
 ├── Outputs/                  Tables and figures created by the scripts
 ├── .lintr                    Code style settings (120-character lines)
@@ -233,7 +233,7 @@ The unzipped raw `.csv` (about 125 MB) is git-ignored because it exceeds GitHub'
 ## How to run
 
 **Requirements:** R 4.2 or newer. The cleaning, exploration and modeling scripts use base R only. `00_setup.R`
-installs the packages planned for the diagnostics step (for example `regclass` for VIF) and the project tooling.
+installs optional packages (such as regclass and caret, which the current scripts do not use; VIF is computed by hand in 04_diagnostics.R) and the project tooling.
 The repository includes a dev container, so it opens ready to use in GitHub Codespaces.
 
 **Run every script from the project root** (the folder that contains `Data/` and `Scripts/`), because all paths
@@ -268,8 +268,7 @@ In VS Code you can also open a script and run it in an R terminal (select all, t
 - **Asking prices, not paid prices.** Hosts can ask for any price, so the model describes pricing behavior.
 - **One snapshot.** Seasonality, events and changes over time are not captured.
 - **Price range.** Listings below $20 or above $1,000 were removed, so results apply to typical short-term rentals.
-- **Long stays.** Many listings require 30+ nights, and their nightly prices are lower. A sensitivity check
-  without them is planned.
+- **Long stays.** Many listings require 30+ nights, and their nightly prices are lower. Refitting on short stays only (under 30 minimum nights) keeps the size and room-type effects stable, but neighborhood premiums shrink (for example Beverly Hills from about 48% to 25%), so treat them as upper bounds for short-stay pricing.
 - **Association, not causation.** For example, listings with a license price higher, but the data cannot show
   that a license raises price.
 - **Coarse location.** Neighborhoods outside the top 15 are grouped together.
@@ -282,7 +281,6 @@ In VS Code you can also open a script and run it in an R terminal (select all, t
 - [x] Exploratory analysis and charts (`02_explore.R`)
 - [x] Model comparison and held-out test evaluation (`03_model.R`)
 - [x] Diagnostics: residual plots, influential points, multicollinearity (VIF), sensitivity check (`04_diagnostics.R`)
-- [x] Lock package versions with `renv`
 
 ## Reproducibility
 
