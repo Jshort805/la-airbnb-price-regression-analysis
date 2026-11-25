@@ -216,11 +216,12 @@ Decisions behind the cleaning:
 │       ├── airbnb_analytic.csv
 │       └── data_dictionary_draft.csv
 ├── Scripts/
-│   ├── 00_setup.R            One-time package installation
-│   ├── 01_clean.R            Raw data → analytic file (prints the cleaning log)
-│   ├── 02_explore.R          Summary tables and charts
-│   ├── 03_model.R            Train/test split, model comparison, final model
-│   └── 04_diagnostics.R      Residual checks, VIF, sensitivity check (planned)
+│   ├── 00_setup.R                    One-time package installation
+│   ├── 01_clean.R                    Raw data → analytic file (prints the cleaning log)
+│   ├── 02_explore.R                  Summary tables and charts
+│   ├── 03_model.R                    Train/test split, model comparison, final model
+│   ├── 04_diagnostics.R              Residual checks, VIF, sensitivity check 
+│   └── 05_export_model_variables.R   Export of final cleaned model variables
 ├── Outputs/                  Tables and figures created by the scripts
 ├── .lintr                    Code style settings (120-character lines)
 └── README.md
@@ -280,8 +281,8 @@ In VS Code you can also open a script and run it in an R terminal (select all, t
 - [x] Reproducible cleaning pipeline (`01_clean.R`)
 - [x] Exploratory analysis and charts (`02_explore.R`)
 - [x] Model comparison and held-out test evaluation (`03_model.R`)
-- [ ] Diagnostics: residual plots, influential points, multicollinearity (VIF), sensitivity check (`04_diagnostics.R`)
-- [ ] Lock package versions with `renv`
+- [x] Diagnostics: residual plots, influential points, multicollinearity (VIF), sensitivity check (`04_diagnostics.R`)
+- [x] Lock package versions with `renv`
 
 ## Reproducibility
 
